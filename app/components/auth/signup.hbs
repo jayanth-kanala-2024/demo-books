@@ -1,0 +1,86 @@
+<form class="space-y-4 md:space-y-6" action="#" {{on "submit" this.submitSignup}} autocomplete="off">
+  <div>
+    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{@translations.name}}</label>
+    <input type="text" name="name" id="name" required
+      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="First and last name">
+    {{#if this.errors.name}}
+    <p class="text-sm font-light text-red-500 dark:text-red-400">
+      {{this.errors.name}}
+    </p>
+    {{/if}}
+  </div>
+  <div>
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{@translations.email}}</label>
+    <input type="text" name="email" id="email" required
+      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      placeholder="name@company.com">
+    {{#if this.errors.email}}
+    <p class="text-sm font-light text-red-500 dark:text-red-400">
+      {{this.errors.email}}
+    </p>
+    {{/if}}
+  </div>
+  <div>
+    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{@translations.password.password}}</label>
+    <input type="password" name="password" id="password" placeholder="At least 8 character" required
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" {{on "keyup" this.validatePassword}}
+      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    {{#if this.errors.password_confirmation}}
+    <p class="text-sm font-light text-red-500 dark:text-red-400">
+      {{this.errors.password}}
+    </p>
+    {{/if}}
+  </div>
+  <div>
+    <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{@translations.password.confirm}}</label>
+    <input type="password" name="confirm_password" id="confirm-password" placeholder="••••••••" required {{on "keyup"
+      this.validateConfirmPassword}}
+      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    {{#if this.errors.password_confirmation}}
+    <p class="text-sm font-light text-red-500 dark:text-red-400">
+      {{this.errors.password_confirmation}}
+    </p>
+    {{/if}}
+  </div>
+  <div>
+    <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+      <h3>{{@translations.password.mustContain}}</h3>
+      <div>&nbsp;</div>
+      <p id="letter"><b>{{@translations.password.lowercase}}</b></p>
+      <p id="capital"><b>{{@translations.password.uppercase}}</b></p>
+      <p id="number"><b>{{@translations.password.number}}</b></p>
+      <p id="length"><b>{{@translations.password.length}}</b></p>
+      <p id="special"><b>{{@translations.password.special}}</b></p>
+      <p id="confirm"><b>{{@translations.password.matchConfirm}}</b></p>
+    </label>
+    {{#if this.errors.password}}
+    <p class="text-sm font-light text-red-500 dark:text-red-400">
+      {{this.errors.password}}
+    </p>
+    {{/if}}
+  </div>
+
+  <div class="flex items-start">
+    <div class="flex items-center h-5">
+      <input id="terms" aria-describedby="terms" type="checkbox" name="terms" required
+        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800">
+      {{#if this.errors.terms}}
+      <p class="text-sm font-light text-red-500 dark:text-red-400">
+        {{this.errors.terms}}
+      </p>
+      {{/if}}
+    </div>
+    <div class="ml-3 text-sm">
+      <label for="terms" class="font-light text-gray-500 dark:text-gray-300">{{@translations.terms}}<a
+          class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">{{@translations.termsCta}}</a></label>
+    </div>
+  </div>
+  <button type="submit"
+    class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+    {{@translations.ctaBtn}}</button>
+  <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+    {{@translations.login}}
+    <LinkTo @route="auth/login" class="font-medium text-primary-600 hover:underline dark:text-primary-500">{{@translations.loginCta}}</LinkTo>
+  </p>
+</form>

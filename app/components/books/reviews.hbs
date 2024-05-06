@@ -1,0 +1,14 @@
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+<h1 class="text-3xl mb-5">Ratings & Reviews</h1>
+{{#each @reviews as |review|}}
+<p class="mb-3 font-bold text-2xl">
+    {{review.reviewer_name}}
+</p>
+<p class="mb-3 font-bold text-2xl">
+    Rating: {{review.rating}}
+</p>
+<p class="mb-3 whitespace-pre-line">
+    {{review.comment}}
+</p>
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+{{/each}}

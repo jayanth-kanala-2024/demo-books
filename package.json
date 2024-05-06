@@ -1,8 +1,8 @@
 {
-  "name": "goodreads",
-  "version": "0.0.0",
+  "name": "freshbooks",
+  "version": "1.0.0",
   "private": true,
-  "description": "Small description for goodreads goes here",
+  "description": "Small description for freshbooks goes here",
   "repository": "",
   "license": "MIT",
   "author": "",
@@ -36,8 +36,10 @@
     "@embroider/webpack": "^3.2.3",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "autoprefixer": "^10.4.19",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
     "ember-auto-import": "^2.7.2",
     "ember-cli": "~5.8.0",
     "ember-cli-app-version": "^6.0.1",
@@ -62,12 +64,15 @@
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-qunit": "^8.1.1",
     "loader.js": "^4.7.0",
+    "postcss": "^8.4.38",
+    "postcss-loader": "^8.1.1",
     "prettier": "^3.2.5",
     "qunit": "^2.20.1",
     "qunit-dom": "^2.0.0",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.1.0",
+    "tailwindcss": "^3.4.3",
     "tracked-built-ins": "^3.3.0",
     "webpack": "^5.91.0"
   },
@@ -76,5 +81,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "flowbite": "^2.3.0"
   }
 }

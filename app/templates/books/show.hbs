@@ -1,0 +1,41 @@
+{{page-title "Show"}}
+<div class="flex">
+    <div class="w-1/4 h-screen sticky top-0 mx-5">
+        <img src="{{if @model.coverImage (concat 'http://localhost:3000/books/' @model.coverImage)}}"
+            alt={{@model.title}} class="object-contain h-96 max-w-96">
+        <Books::WantRead @id={{@model.id}} />
+    </div>
+    <div class="w-3/4 mx-5">
+        <p class="mb-3 font-bold text-5xl dark:text-white">
+            {{@model.title}}
+        </p>
+        <p class="mb-3 text-2xl dark:text-white">
+            {{@model.author}}
+        </p>
+        <p class="mb-3 whitespace-pre-line">
+            {{@model.description}}
+        </p>
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <div>
+            <h1 class="text-2xl dark:text-white mb-2">Book details</h1>
+            <dl>
+                <div class="flex flex-inline">
+                    <dt class="basis-1/4 mb-1">Published</dt>
+                    <dd class="">{{@model.created_at_formatted}},&nbsp;by {{@model.publisher}}</dd>
+                </div>
+                <div class="flex flex-inline">
+                    <dt class="basis-1/4 mb-1">Contributed</dt>
+                    <dd>by {{@model.contributor}}</dd>
+                </div>
+                <div class="flex flex-inline">
+                    <dt class="basis-1/4 mb-1">ISBN</dt>
+                    <dd>{{@model.isbn13}}</dd>
+                    <dd class="mb-1 pl-1 text-gray-500">(ISBN10:&nbsp;{{@model.isbn13}})</dd>
+                </div>
+            </dl>
+        </div>
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <Books::ReviewForm @book={{@model}} />
+        <Books::Reviews @reviews={{@model.reviews}} />
+    </div>
+</div>

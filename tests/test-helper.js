@@ -1,5 +1,5 @@
-import Application from 'goodreads/app';
-import config from 'goodreads/config/environment';
+import Application from 'freshbooks/app';
+import config from 'freshbooks/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

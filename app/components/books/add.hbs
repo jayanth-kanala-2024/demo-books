@@ -1,0 +1,82 @@
+<LinkTo @route="books.manage"
+    class="text-white tex-center inline-flex items-center float-end bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    {{!-- <svg class="w-6 h-6 text-gray-800 dark:text-white me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+        width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg> --}}
+    Manage books
+</LinkTo>
+<div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+    <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">{{@formTitle}}</h1>
+    <form action="#" enctype="multipart/form-data" {{on "submit" this.saveBook}}>
+        <input type="hidden" name="id" value={{@book.id}}>
+        <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+            <div class="sm:col-span-2">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                <input type="text" name="title" id="title" value={{@book.title}}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="Type book title">
+                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                        class="font-medium">{{@errors.title}}</span></p>
+            </div>
+            <div class="w-full">
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Authors</label>
+                <input type="text" name="author" id="author" value={{@book.author}}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="John Doe, John Smith">
+            </div>
+            <div>
+                <label for="contributors"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contributors</label>
+                <input type="text" name="contributor" id="contributor" value={{@book.contributor}}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="John Doe, John Smith">
+            </div>
+            <div>
+                <label for="publishers"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Publishers</label>
+                <input type="text" name="publisher" id="publishers" value={{@book.publisher}}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="John Doe, John Smith">
+            </div>
+            <div class="w-full">
+                <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                <input type="number" step="0.01" name="price" id="price" value={{@book.price}}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="&#8377;199.99">
+            </div>
+            <div class="w-full">
+                <label for="isbn13" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ISBN13</label>
+                <input type="text" name="isbn13" id="isbn13" value={{@book.isbn13}}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="Enter 13 digit ISBN">
+            </div>
+            <div class="w-full">
+                <label for="isbn10" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ISBN10</label>
+                <input type="text" name="isbn10" id="isbn10" value={{@book.isbn10}}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="Enter 10 digit ISBN">
+            </div>
+            <div class="sm:col-span-2">
+                <label for="description"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                <textarea id="description" rows="8" name="description" value={{@book.description}}
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    placeholder="About the book"></textarea>
+            </div>
+
+            <div class="sm:col-span-2">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload book cover</label>
+                <input type="file"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    aria-describedby="user_avatar_help" id="coverImage">
+            </div>
+
+        </div>
+        <button type="submit"
+            class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+            {{@formCTA}}
+        </button>
+    </form>
+</div>

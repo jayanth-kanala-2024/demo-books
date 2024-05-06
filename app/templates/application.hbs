@@ -1,5 +1,11 @@
-{{page-title "Goodreads"}}
-
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+{{page-title "freshbooks"}}
+<Header @globals={{@model}} />
+<Container @globals={{@model}}>
+  <main>
+    {{outlet}}
+  </main>
+</Container>
+{{!-- <AlertsWithDismiss>
+  {{yield}}
+</AlertsWithDismiss> --}}
+<Footer />

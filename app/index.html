@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Goodreads</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{content-for "head"}}
+<head>
+  <meta charset="utf-8">
+  <title>freshbooks</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/goodreads.css">
+  {{content-for "head"}}
 
-    {{content-for "head-footer"}}
-  </head>
-  <body>
-    {{content-for "body"}}
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/freshbooks.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/goodreads.js"></script>
+  {{content-for "head-footer"}}
+</head>
 
-    {{content-for "body-footer"}}
-  </body>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-400">
+  {{content-for "body"}}
+
+  {{content-for "body-footer"}}
+  <script src="{{rootURL}}assets/vendor.js"></script>
+  <script src="{{rootURL}}assets/freshbooks.js"></script>
+  <script src="/dist/flowbite.min.js"></script>
+</body>
+
 </html>
